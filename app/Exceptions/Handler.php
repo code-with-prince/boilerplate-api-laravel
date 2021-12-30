@@ -51,13 +51,13 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Throwable $e)
     {
-        if ($request->is("api/*")){
+        if ($request->is("api/*")) {
             $status = 500;
             $message = 'Internal Server Error!';
-            if($e instanceof NotFoundHttpException) {
+            if ($e instanceof NotFoundHttpException) {
                 $status = 404;
                 $message = 'Not Found!';
-            }elseif ($e instanceof AuthorizationException) {
+            } elseif ($e instanceof AuthorizationException) {
                 $status = 403;
                 $message = 'Action is Unauthorized!';
             }
